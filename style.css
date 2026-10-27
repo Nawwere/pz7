@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Переменные для светлой темы */
+body {
+    --bg: #f4f4f9;
+    --text: #333;
+    --panel-bg: #ffffff;
+    --panel-border: #d9d9d9;
+    --completed-bg: #e8f8f0;
+    --completed-border: #2ecc71;
+    --muted: #555;
+
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Тёмная тема — переопределяем только переменные */
+body.dark-theme {
+    --bg: #1e1e2e;
+    --text: #e0e0e0;
+    --panel-bg: #2a2a3c;
+    --panel-border: #444;
+    --completed-bg: #1e3a2b;
+    --completed-border: #2ecc71;
+    --muted: #bbb;
+}
+
+/* Панель */
+.status-panel {
+    max-width: 520px;
+    width: 100%;
+    padding: 32px;
+    border: 1px solid var(--panel-border);
+    border-radius: 18px;
+    background-color: var(--panel-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.status-panel.completed {
+    background-color: var(--completed-bg);
+    border-color: var(--completed-border);
+}
+
+.status-panel h1 { margin-bottom: 16px; font-size: 26px; }
+.status-text { font-size: 18px; margin-bottom: 12px; }
+.click-counter { font-size: 16px; margin-bottom: 24px; color: var(--muted); }
+.click-count { font-weight: bold; color: #3498db; }
+
+/* Кнопки — общие стили */
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+
+button {
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.status-button { background-color: #2ecc71; }
+.reset-button  { background-color: #e74c3c; }
+.theme-button  { background-color: #3498db; }
+
+/* Общие состояния для всех кнопок */
+.status-button:hover { background-color: #27ae60; }
+.reset-button:hover  { background-color: #c0392b; }
+.theme-button:hover  { background-color: #2980b9; }
+
+button:active { transform: translateY(1px); }
+
+button:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
+}
